@@ -1,0 +1,11 @@
+{
+  "name": "@dreameros/connectors-cli",
+  "version": "0.1.0",
+  "private": false,
+  "license": "MIT",
+  "description": "Command-line on-ramp for building DreamerOS connectors: scaffold, validate, and list.",
+  "type": "module",
+  "bin": {
+    "dreameros-connectors": "bin/cli.mjs"
+  }
+}

@@ -52,8 +52,11 @@ npm run validate
 
 Add a connector:
 
-1. Copy `connectors/_template/connector.ts` to
-   `connectors/<your-tool>/connector.ts`.
+1. Scaffold it with the CLI (or copy `connectors/_template/connector.ts`
+   by hand):
+   ```bash
+   node packages/cli/bin/cli.mjs scaffold slack --name Slack --category work --auth oauth --tier pro
+   ```
 2. Fill in the fields. The export is typed `: Provider`, so
    `npm run validate` (which runs `tsc --noEmit`) checks it against the
    schema.
@@ -64,7 +67,9 @@ Add a connector:
 5. A maintainer reviews and merges. The gateway team implements the
    matching endpoints and flips your connector to `live`.
 
-See [docs/quickstart.md](./docs/quickstart.md) for the full walk-through.
+See [docs/quickstart.md](./docs/quickstart.md) for the full walk-through and
+[packages/cli](./packages/cli) for the CLI commands (`scaffold`, `validate`,
+`list`).
 
 ## How it works
 
@@ -88,6 +93,7 @@ packages/schema/        the open contract
   src/gateway-contract.ts type-only gateway endpoint contract
   src/validate.ts         runtime validation of a connector object
   src/index.ts            public exports
+packages/cli/           the command-line on-ramp (scaffold, validate, list)
 connectors/             the connector registry
   _template/              copy this to start a new connector
   github/                 a real worked example (OAuth, live)
