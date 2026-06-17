@@ -1,0 +1,32 @@
+name: pr-check
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install
+        run: npm install
+
+      - name: Type-check connectors against the schema
+        run: npm run validate
+
+      - name: Dash scan (no em or en dashes - spaced hyphens only)
+        run: |
+          if grep -rnP "[\x{2014}\x{2013}]" --include="*.ts" --include="*.md" --include="*.json" --include="*.yml" .; then
+            echo "Found an em dash (U+2014) or en dash (U+2013). Replace with a spaced hyphen."
+            exit 1
+          fi
+          echo "Dash scan clean."
