@@ -1,10 +1,12 @@
 // ============================================================
-// Gemini connector - worked example (paste-token)
+// Gemini connector - worked example (paste-token, live)
 // ============================================================
 // Mirrors the production registry entry. Shows the paste_token auth mode:
 // the user pastes an API key from the provider's settings UI and the
-// gateway verifies and stores it. Lifted verbatim from the live registry,
-// so the status and tier match what the gateway actually serves.
+// gateway verifies it, stores it, and runs prompts on it. Lifted verbatim
+// from the live registry, so the status and tier match what the gateway
+// actually serves. This is a fully live connector: connect at
+// /connect/gemini, paste a Gemini key, and ask.
 // ============================================================
 
 import type { Provider } from "../../packages/schema/src/provider.js";
@@ -14,7 +16,7 @@ export const connector: Provider = {
   name: "Gemini",
   category: "ai_tools",
   auth_mode: "paste_token",
-  status: "paste_setup",
+  status: "live",
   icon_slug: "googlegemini",
   tagline: "Ask a question and get Gemini's answer right here, run on your own Gemini key.",
   tier_required: "light",
@@ -25,6 +27,8 @@ export const connector: Provider = {
     "Responses captured to memory layer with full provenance trail.",
     "Key encrypted at rest; rotation reminder at 90 days.",
   ],
+  example:
+    "Ask a hard question and the answer comes straight from Gemini, running on your own key and your own account. Nothing fires on its own - you send each prompt, and every one is checked for intent before it goes.",
   scope_summary: "generativelanguage.googleapis.com prompt API",
   setup_url: "https://aistudio.google.com/app/apikey",
   docs_url: "/connect/gemini#docs",
