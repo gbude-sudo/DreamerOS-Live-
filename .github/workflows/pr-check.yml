@@ -25,7 +25,7 @@ jobs:
 
       - name: Dash scan (no em or en dashes - spaced hyphens only)
         run: |
-          if grep -rnP "[\x{2014}\x{2013}]" --include="*.ts" --include="*.md" --include="*.json" --include="*.yml" .; then
+          if grep -rnP "[\x{2014}\x{2013}]" --include="*.ts" --include="*.md" --include="*.json" --include="*.yml" --exclude-dir=node_modules --exclude-dir=dist --exclude-dir=.git .; then
             echo "Found an em dash (U+2014) or en dash (U+2013). Replace with a spaced hyphen."
             exit 1
           fi
