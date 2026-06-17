@@ -1,7 +1,7 @@
 # Writing ifp_rules
 
-`ifp_rules` is the heart of a DreamerOS connector and the thing that makes
-it different from a Zapier app. Instead of a grid of read/write permission
+`ifp_rules` is the heart of a DreamerOS connector and the thing that sets
+it apart. Instead of a grid of read/write permission
 toggles, every connector ships a short list of plain-English rules that
 say what it can do and what stays gated. The gateway enforces the intent
 behind these rules through the IFP three-axis check (Intent x Integrity x
