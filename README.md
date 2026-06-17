@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="./assets/logo.svg" alt="DreamerOS" width="110" />
+
 # DreamerOS Connectors
 
 **Build governed integrations for DreamerOS.**
