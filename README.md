@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/logo.svg" alt="DreamerOS" width="110" />
+<img src="./assets/mark.png" alt="DreamerOS" width="96" />
 
 # DreamerOS Connectors
 
