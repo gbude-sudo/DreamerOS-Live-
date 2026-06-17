@@ -3,15 +3,15 @@
 Build governed integrations for DreamerOS.
 
 This is the public, open contract for wiring any external tool into the
-DreamerOS governed AI gateway. It is the equivalent of Zapier's open
-`zapier-platform-schema` plus `zapier-platform-core`: the schema that
-defines a valid connector, the type-only gateway contract a connector
-speaks, a validator, a copy-me template, and worked examples. The
-orchestration engine, the governance runtime (EDE / DAIM / IFP), and the
-memory layer stay in the gateway and are not in this repo - exactly the
-way Zapier open-sources the definition format but not the run engine.
+DreamerOS governed AI gateway. It carries everything an outside builder
+needs and nothing they should not have: the schema that defines a valid
+connector, the type-only gateway contract a connector speaks, a validator,
+a copy-me template, and worked examples. The orchestration engine, the
+governance runtime (EDE / DAIM / IFP), and the memory layer stay in the
+gateway and are not in this repo. The definition format is open; the run
+engine is the hosted DreamerOS service.
 
-What makes a DreamerOS connector different from a Zapier app:
+What makes a DreamerOS connector different:
 
 - Governance-native, not toggle-native. Every connector ships a list of
   plain-English `ifp_rules` ("what can this do") that the gateway gates
